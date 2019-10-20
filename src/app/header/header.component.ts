@@ -8,8 +8,12 @@ import { Component, OnInit } from '@angular/core';
 export class HeaderComponent implements OnInit {
 
   constructor() { }
-
+  navDisplay = "d-none"
   ngOnInit() {
   }
 
+
+  toggleMobileNav(){
+    this.navDisplay = this.navDisplay == "hideNav" || this.navDisplay == 'd-none'  ? "showNav" : "hideNav"
+  }
 }

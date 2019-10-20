@@ -141,11 +141,50 @@ h6 {
   display: block;
 }
 
-.mobile-nav,
 .nav-icon {
   display: none !important;
 }
 
+.showNav{
+  position: absolute;
+  width: 100%;
+  left: -80%;
+  background-color: rgb(8, 29, 42);
+  animation: showNav linear 0.3s forwards;
+  -webkit-animation: showNav linear 0.3s forwards;
+}
+
+.hideNav{
+  position: absolute;
+  width: 100%;
+  left: 0%;
+  background-color: rgb(8, 29, 42);
+  animation: hideNav linear 0.3s forwards;
+  -webkit-animation: hideNav linear 0.3s forwards;
+}
+
+
+
+@keyframes hideNav{
+  from{
+    left: 0%;
+  }
+  100%{
+    left: -100%;
+  }
+
+}
+
+@keyframes showNav{
+  from{
+    display: block;
+    left: -80%;
+  }
+  to{
+    display: block;
+    left: 0%;
+  }
+}
 /* 
   ==========================
   All Padding
@@ -2592,7 +2631,7 @@ h6 {
   }
 
   @media screen and (max-width: 550px) {
-    .mobile-nav,
+  
     .nav-icon {
       display: block !important;
     }
