@@ -1,0 +1,28 @@
+<div class="video-section grid g-col-3-1 g-gap-20">
+  <div>
+    <div class="video-heading mb-30">
+      <h1>All Videos</h1>
+      <hr class="little-line" />
+    </div>
+    <div class="grid g-col-spread-200 g-gap-4">
+      <a 
+      *ngFor="let movie of movies"
+      [routerLink]="['/video-details', movie.id]" 
+      >
+        <div class="video-item p-12">
+          <img
+            class="h-thumbnail"
+            src="https://image.tmdb.org/t/p/original{{ movie.poster_path }}"
+            alt=""
+          />
+          <h2 class="t-white">{{ movie.title }}</h2>
+          <p class="video-year">
+            {{ movie.release_date.split("-")[0] }}
+          </p>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <app-fav-videos></app-fav-videos>
+</div>

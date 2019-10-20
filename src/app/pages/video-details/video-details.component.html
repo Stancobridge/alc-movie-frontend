@@ -1,0 +1,65 @@
+<app-header></app-header>
+
+<section class="body-wrapper p-20">
+  <div class="video-details">
+    <div class="video-title mb-20">
+      <h1 class="ts-35">
+        <span class="fa fa-play-circle "></span>
+        {{ movie.title }}
+      </h1>
+      <hr class="little-line" />
+    </div>
+    <div class="grid g-gap-4 g-col-2-slide">
+      <div class="video-thumbnail">
+        <img
+          src="https://image.tmdb.org/t/p/original{{ movie.poster_path }}"
+          alt=""
+        />
+      </div>
+      <div class="video-description">
+        <div class="mb-20 ">
+          <h3>
+            Movie Decriptions
+          </h3>
+          <hr class="little-line w-full" />
+        </div>
+
+        <div class="description-contents">
+          <p class="description-item p-10 t-primary m-0">
+            Genre: {{ movie.genres }}
+          </p>
+          <p class="description-item p-10 t-primary m-0">
+              Language: {{ movie.original_language.toUpperCase() }}
+            </p>
+          <p class="description-item p-10 t-primary m-0">
+            Rating: {{ movie.vote_average }}
+          </p>
+          <p class="description-item p-10 t-primary m-0">
+            Voting: {{ movie.vote_count }}
+          </p>
+          <p class="description-item p-10 t-primary m-0">
+              Year: {{ movie.release_date.split('-')[0] }}
+            </p>
+          <p class="description p-10">
+            {{ movie.overview }}
+          </p>
+
+          <button  *ngIf="!movie.isFav" (click)="addMovieToFavourite()" class="btn btn-success btn-full fav-btn">
+            <strong class="ts-26">
+              <span class="fa fa-heart"></span>Add to Favourite
+            </strong>
+          </button>
+
+          <button *ngIf="movie.isFav" (click)="removeMovieFromFavourite()" class="btn btn-primary btn-full fav-btn">
+              <strong class="ts-26">
+                <span class="fa fa-trash"></span>Remove from Favourite
+              </strong>
+            </button>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<app-search-box></app-search-box>
