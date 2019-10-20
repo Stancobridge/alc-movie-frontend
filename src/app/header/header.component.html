@@ -1,4 +1,4 @@
-<header class="body-wrapper">
+<header class="body-wrapper" [ngStyle]="{'background-color': bgColor}">
   <nav id="header-nav">
     <div id="nav-logo">
       <a routerLink="/">
@@ -35,7 +35,7 @@
       <ul class="">
         <li>
           <li>
-            <a [routerLink]="['/about']" class="ts-25">About</a>
+            <a [routerLink]="['/about']" class="ts-25"> About</a>
           </li>
           <li>
             <a [routerLink]="['/login']" >Login</a>

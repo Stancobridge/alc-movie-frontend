@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ContentChild, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-register',
@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterComponent implements OnInit {
 
+  @ContentChild('#fullnameInput', {
+    static: true
+  }) fullName: ElementRef<HTMLInputElement>; 
   constructor() { }
 
   ngOnInit() {
   }
 
+  register(){
+    // const {value} = this.fullnName.nativeElement
+    console.log(this.fullName)
+  }
 }

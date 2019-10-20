@@ -111,6 +111,10 @@ h6 {
   float: left;
 }
 
+.mobile-nav{
+  z-index: 4;
+}
+
 #header-nav ul li a,
 .mobile-nav ul li a {
   display: block;

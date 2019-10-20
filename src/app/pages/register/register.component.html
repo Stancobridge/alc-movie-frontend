@@ -7,31 +7,29 @@
                 <h1>Create Account</h1>
                 <hr class="little-line">
             </div>
-            <form action="">
                 <div>
-                    <label for="" class="pt-8 d-block">Username</label>
-                    <input type="text" class="form-field">
+                    <label for="" class="pt-8 d-block">Fullname</label>
+                    <input type="text" class="form-field" #fullnameInput>
                 </div>
                 
                 <div>
                         <label for="" class="pt-8 d-block">Email</label>
-                        <input type="password" class="form-field">
+                        <input type="email" class="form-field" #emailInput>
                     </div>
                 
                 <div>
                     <label for="" class="pt-8 d-block">Password</label>
-                    <input type="password" class="form-field">
+                    <input type="password" class="form-field" #password>
                 </div>
                 <div>
                         <label for="" class="pt-8 d-block">Verify Password</label>
-                        <input type="password" class="form-field">
+                        <input type="password" class="form-field" #verify_password>
                     </div>
                 <div class="t-left">
-                    <input type="checkbox"> <span>
+                    <input type="checkbox" checked > <span>
                             Before you continue, you must accept <a href="">terms and condition</a>
                     </span>
                 </div>
-                <button class="btn btn-primary btn-full mt-15">CREATE ACCOUNT</button>
-            </form>
+                <button (click)="register()" class="btn btn-primary btn-full mt-15">CREATE ACCOUNT</button>
         </div>
     </section>
