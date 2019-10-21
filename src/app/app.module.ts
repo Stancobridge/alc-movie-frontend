@@ -18,6 +18,7 @@ import { AboutComponent } from "./pages/about/about.component";
 import { MoviesService } from "./services/movies.service";
 import { MainfavidsComponent } from './pages/mainfavids/mainfavids.component';
 import { SearchComponent } from './pages/search/search.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { SearchComponent } from './pages/search/search.component';
     RegisterComponent,
     AboutComponent,
     MainfavidsComponent,
-    SearchComponent
+    SearchComponent,
+    FooterComponent
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [MoviesService],
