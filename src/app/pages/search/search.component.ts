@@ -16,30 +16,27 @@ export class SearchComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    let searchValue =  this.route.snapshot.queryParams["q"]
+    
+    let searchValue = this.route.snapshot.queryParams["q"];
 
     this.searchResult = this.moviesService.movies.filter(vid => {
-      if(searchValue == '' ||  !this.route.snapshot.queryParams['q']) return;
-      let reg = new RegExp(searchValue, 'gmi')
+      if (searchValue == "" || !this.route.snapshot.queryParams["q"]) return;
+      let reg = new RegExp(searchValue, "gmi");
       if (vid.title.search(reg) > -1) {
         return vid;
-      } 
+      }
     });
 
-    this.route.queryParams.subscribe((params: Params) =>{
-      searchValue = params['q']
+    this.route.queryParams.subscribe((params: Params) => {
+      searchValue = params["q"];
       this.searchResult = this.moviesService.movies.filter(vid => {
-        if(searchValue == '' ||  !this.route.snapshot.queryParams['q']) return;
-        let reg = new RegExp(searchValue, 'gmi')
+        if (searchValue == "" || !this.route.snapshot.queryParams["q"]) return;
+        let reg = new RegExp(searchValue, "gmi");
         if (vid.title.search(reg) > -1) {
           return vid;
-        } 
+        }
       });
-  
-    })
+    });
     // console.log(this.searchResult);
   }
-
-
-  
 }

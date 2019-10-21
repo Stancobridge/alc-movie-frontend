@@ -1,7 +1,6 @@
 import { ApiService } from "./../../services/api.service";
 import { Component, OnInit, ElementRef, ViewChild } from "@angular/core";
 import { HttpClient, HttpResponse } from "@angular/common/http";
-import { Http2ServerResponse } from "http2";
 
 @Component({
   selector: "app-register",

@@ -1,3 +1,4 @@
+import { LoginService } from './../../services/login.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginPageComponent implements OnInit {
 
-  constructor() { }
+  userId;
+  constructor(private loginService:LoginService) { }
 
   ngOnInit() {
+    this.userId =  this.loginService.userId
   }
 
 }

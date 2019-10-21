@@ -1,5 +1,5 @@
-<app-header></app-header>
-<section class="body-wrapper p-20">
+ <app-header *ngIf="!userId"></app-header>
+<section *ngIf="!userId" class="body-wrapper p-20">
 
     <div class="login-section">
         <app-login></app-login>

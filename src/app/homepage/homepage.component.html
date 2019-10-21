@@ -15,16 +15,15 @@
         </div>
         <div class="p-20">
           <div class="h-form">
-           <app-login></app-login>
+           <app-login *ngIf="!userId"></app-login>
           </div>
         </div>
       </div>
     </section>
   </section>
-
-
+  
   <app-search-box></app-search-box>
   <section class="video-list p-6 body-wrapper">
-    <app-video-list></app-video-list>
+    <app-video-list *ngIf="userId"></app-video-list>
   </section>
   

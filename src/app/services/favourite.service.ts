@@ -1,3 +1,4 @@
+import { LoginService } from './login.service';
 import { MoviesService } from "./movies.service";
 import { Injectable, EventEmitter } from "@angular/core";
 import { MovieModel } from "../models/movie.model";
@@ -7,29 +8,45 @@ import { MovieModel } from "../models/movie.model";
 })
 export class FavouriteVidsService {
   onMovieFavUpdated = new EventEmitter<MovieModel[]>();
-  // favouriteVids: MovieModel[] = [];
 
   
-  constructor(private moviesService: MoviesService) {
-    let favList = localStorage.getItem("allFavVids");
-    if (!favList) {
-      localStorage.setItem("allFavVids", JSON.stringify([]));
-    } else {
-      Object.defineProperties(window, {
-        locaclStorage: {
-          writable: false
-        }
-      })
-      this.favouriteVids = JSON.parse(favList)
-    }
+  constructor(private moviesService: MoviesService, private loginService: LoginService) {
+    // let apiFav: string = JSON.stringify(this.loginService.favouriteVideos)
+    // let favList = this.loginService.userId ? apiFav :  localStorage.getItem("allFavVids") ;
+    // if (!favList) {
+    //   localStorage.setItem("allFavVids", JSON.stringify([]));
+    // } else {
+    //   Object.defineProperties(window, {
+    //     locaclStorage: {
+    //       writable: false
+    //     }
+    //   })
+    //   this.favouriteVids = JSON.parse(favList)
+    // }
   }
 
+
   get favouriteVids():  MovieModel[]  {
-    return JSON.parse(localStorage.getItem("allFavVids"))
+    if(this.loginService.userId) {
+      return localStorage.getItem("userAllFavs") ? JSON.parse(localStorage.getItem("userAllFavs")) : []
+    } 
+      return localStorage.getItem("allFavVids") ? JSON.parse(localStorage.getItem("allFavVids")) : []
+
+    
   }
 
   set favouriteVids(value: MovieModel[])  {
-    localStorage.setItem('allFavVids',JSON.stringify(value))
+    if(this.loginService.userId) {
+      localStorage.setItem('userAllFavs', JSON.stringify(value));
+
+      // Update Server Database
+      this.loginService.favouriteVideos = JSON.parse(localStorage.getItem('userAllFavs'))
+    } else{
+      
+      localStorage.setItem('allFavVids',JSON.stringify(value))
+
+    }
+    
   }
 
   addToFavourite(id: number) {
