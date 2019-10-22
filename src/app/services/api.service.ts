@@ -4,8 +4,8 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ApiService {
-  apiBase : 'http://localhost:5500/'
+  apiBase : string = 'https://idevosm-alc.herokuapp.com/'
   constructor() { 
-    this.apiBase = 'http://localhost:5500/'
+    this.apiBase = 'https://idevosm-alc.herokuapp.com/'
   }
 }
