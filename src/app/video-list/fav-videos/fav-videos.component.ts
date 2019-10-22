@@ -15,6 +15,7 @@ export class FavVideosComponent implements OnInit {
   
   constructor(private favouriteVidsService: FavouriteVidsService, private http: HttpClient, private apiService: ApiService, private loginService :LoginService ) {
     
+    if(this.loginService.userId) {
     this.http
     .post(this.apiService.apiBase + "movie/getFav", {
       userId: this.loginService.userId
@@ -24,7 +25,7 @@ export class FavVideosComponent implements OnInit {
       localStorage.setItem("userAllFavs", res.favouriteVids);
       this.favouriteMovies = JSON.parse(res.favouriteVids)
     });
-
+  }
     this.favouriteVidsService.onMovieFavUpdated.subscribe((movies: MovieModel[]) => {
       this.favouriteMovies = movies
     })
